@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{user.name}} | Create Todo</title>
+    </head>
+    <body>
+        <h1>{{user.name}}</h1>
+        
+        <a href="{% url 'profile' %}"><button>Home</button></a> | 
+        <a href="{% url 'history' %}"><button>History</button></a> | 
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+        <br>
+        <h2>Create Todo Form</h2>
+        <form method="post">
+            {% csrf_token %} 
+            <table>
+                <tr>
+                    <td>Title:</td>
+                    <td><input type="text" name="title" size=100 required></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><textarea name="description" rows="5" cols="77"></textarea></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Create Todo</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

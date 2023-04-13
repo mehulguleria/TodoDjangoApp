@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{user.name}} | {{todo.title}}</title>
+        <style>
+            .todo-card{
+                padding: 5px;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 5px;
+            }
+            .container{
+                padding-top: 20px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>{{user.name}}</h1>
+        <a href='/profile'><button>Home</button></a> | 
+        <a href="{% url 'createtodo' %}"><button>Create Todo</button></a> | 
+        <a href="{% url 'history' %}"><button>History</button></a> | 
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+        <br>
+        <div class="container">
+            <div class="todo-card">
+                <h2>{{todo.title}}</h2>
+                <span style="font-size: small;">Created on: <b>{{todo.created_on}}</b></span><br>
+                <p>{{todo.description}}</p>
+            </div>
+        </div>
+
+    </body>
+</html>

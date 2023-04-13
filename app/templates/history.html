@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{user.name}}</title>
+    </head>
+    <body>
+        <style>
+            .todo-card{
+                padding: 5px;
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 5px;
+            }
+            .todo-link{
+                text-decoration: none;
+                color: black;
+            }
+
+        </style>
+
+        <h1>{{user.name}}</h1>
+        
+        <a href='/profile'><button>Home</button></a> | 
+        <a href="{% url 'createtodo' %}"><button>Create Todo</button></a> | 
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+        <br>
+
+        <h2>Your Todo's</h2>
+
+        {% for todo in todolist %}
+        <div class="todo-card">
+            <h3>{{forloop.counter}}. {{todo.title}}</h3>
+            {{todo.description|slice:":100"}} <span style="font-size:small;"><b>(created on: {{todo.created_on}})</b></span>
+        </div><br>
+        {%endfor%} 
+    </body>
+</html>
